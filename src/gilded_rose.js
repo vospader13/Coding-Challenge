@@ -9,7 +9,7 @@ class Item {
 
 // Goals: 
   // Simplify existing code to a more readable format
-  // Configure double degradation after saleBy date has passed
+  // Configure double degradation
 
   // Set names into components to prevent duplicate typing and potential typos
   const aged_Brie = 'Aged Brie'
