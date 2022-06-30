@@ -28,9 +28,8 @@ class Shop {
       this.items[i].name != aged_Brie && this.items[i].name != backstage_Pass
       // Run qualityDecrease function If item is aged_Brie or backstage_Pass --> Run qualityIncrease function
       ? this.qualityDecrease(i) : this.qualityIncrease(i)
+
       // sellIn will always be decrease unless the name is sulfuras --> Run sellInDecrease function.
-
-
       this.sellInDecrease(i) 
       // If sellIn is less than 0 Run sellInExpiredQualityUpdate function Otherwise empty or undefined
       this.items[i].sellIn < 0 
