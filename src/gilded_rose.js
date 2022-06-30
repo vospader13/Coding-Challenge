@@ -23,7 +23,7 @@ class Shop {
   }
   updateQuality() {
     // Loop through the array of items in the shop
-    for (let i = 0 i < this.items.length i++) {
+    for (let i = 0; i < this.items.length; i++) {
       // If item is not aged_Brie or backstage_Pass
       this.items[i].name != aged_Brie && this.items[i].name != backstage_Pass
       // Run qualityDecrease function If item is aged_Brie or backstage_Pass --> Run qualityIncrease function
