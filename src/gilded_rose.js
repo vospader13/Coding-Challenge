@@ -10,27 +10,28 @@ class Item {
 // Goals: 
   // Simplify existing code to a more readable format
   // Configure double degradation after saleBy date has passed
-  
+
+  // Set names into components to prevent duplicate typing and potential typos
+  const aged_Brie = 'Aged Brie'
+  const backstage_Pass = 'Backstage passes to a TAFKAL80ETC concert'
+  const sulfuras = 'Sulfuras, Hand of Ragnaros'
 
 class Shop {
   constructor(items=[]){
     this.items = items;
   }
-
-  
-
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].name != 'Aged Brie' && this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
+      if (this.items[i].name != aged_Brie && this.items[i].name != backstage_Pass) {
         if (this.items[i].quality > 0) {
-          if (this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
+          if (this.items[i].name != sulfuras) {
             this.items[i].quality = this.items[i].quality - 1;
           }
         }
       } else {
         if (this.items[i].quality < 50) {
           this.items[i].quality = this.items[i].quality + 1;
-          if (this.items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
+          if (this.items[i].name == backstage_Pass) {
             if (this.items[i].sellIn < 11) {
               if (this.items[i].quality < 50) {
                 this.items[i].quality = this.items[i].quality + 1;
@@ -44,14 +45,14 @@ class Shop {
           }
         }
       }
-      if (this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
+      if (this.items[i].name != sulfuras) {
         this.items[i].sellIn = this.items[i].sellIn - 1;
       }
       if (this.items[i].sellIn < 0) {
-        if (this.items[i].name != 'Aged Brie') {
-          if (this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
+        if (this.items[i].name != aged_Brie) {
+          if (this.items[i].name != backstage_Pass) {
             if (this.items[i].quality > 0) {
-              if (this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
+              if (this.items[i].name != sulfuras) {
                 this.items[i].quality = this.items[i].quality - 1;
               }
             }
