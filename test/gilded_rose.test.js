@@ -24,11 +24,11 @@ describe("Gilded Rose", function() {
       expect(a+b).toBe(3)
     })
     // Testing that Jest is functional and Fails a simple test. 
-    it("Should fail this test intentionally. ", function(){
-      const a = 1
-      const b = 0
-      expect(a+b).toBe(3)
-    })
+    // it("Should fail this test intentionally. ", function(){
+    //   const a = 1
+    //   const b = 0
+    //   expect(a+b).toBe(3)
+    // })
 
     // Functionality tests.
     it("Should degrade quality of item twice as fast, after sellIn date passed", function() {
