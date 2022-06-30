@@ -23,49 +23,16 @@ class Shop {
   }
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].name != aged_Brie && this.items[i].name != backstage_Pass) {
-        if (this.items[i].quality > 0) {
-          if (this.items[i].name != sulfuras) {
-            this.items[i].quality = this.items[i].quality - 1;
-          }
-        }
-      } else {
-        if (this.items[i].quality < 50) {
-          this.items[i].quality = this.items[i].quality + 1;
-          if (this.items[i].name == backstage_Pass) {
-            if (this.items[i].sellIn < 11) {
-              if (this.items[i].quality < 50) {
-                this.items[i].quality = this.items[i].quality + 1;
-              }
-            }
-            if (this.items[i].sellIn < 6) {
-              if (this.items[i].quality < 50) {
-                this.items[i].quality = this.items[i].quality + 1;
-              }
-            }
-          }
-        }
-      }
-      if (this.items[i].name != sulfuras) {
-        this.items[i].sellIn = this.items[i].sellIn - 1;
-      }
-      if (this.items[i].sellIn < 0) {
-        if (this.items[i].name != aged_Brie) {
-          if (this.items[i].name != backstage_Pass) {
-            if (this.items[i].quality > 0) {
-              if (this.items[i].name != sulfuras) {
-                this.items[i].quality = this.items[i].quality - 1;
-              }
-            }
-          } else {
-            this.items[i].quality = this.items[i].quality - this.items[i].quality;
-          }
-        } else {
-          if (this.items[i].quality < 50) {
-            this.items[i].quality = this.items[i].quality + 1;
-          }
-        }
-      }
+      // handling logic on looped items loops through all items in the shop and applies applicable logic 
+
+      // check if item is not aged_Brie or backstage_Pass if its not deduct quality if it is add quality
+      this.items[i].name != aged_Brie || backstage_Pass ? this.qualityDecrease : this.qualityIncrease
+
+      // run sellIn decrease logic ( will not decrease sales days of exempt items)
+      this.sellInDecrease(i)
+
+      // if items quality reaches below 0 run expired quality update
+      this.items[i].sellIn < 0 ? this.sellInExpiredQualityUpdate : null
     }
 
     return this.items;
@@ -121,7 +88,7 @@ class Shop {
         this.items[i].quality = this.items[i].quality +1
       }
     }
-    if (this.items[i].quality < 0 ) {
+    if (this.items[i].quality <= 0 ) {
       this.items[i].quality = 0
     }
   }
